@@ -1,0 +1,80 @@
+name: blup
+version: 0.0.0.0
+synopsis: A blueprint-based CLI tool
+description: |
+  This package provides an executable to help manager Nix blueprint-based projects (see https://github.com/numtide/blueprint).
+author: garnix team <dev@garnix.io>
+maintainer: garnix team <dev@garnix.io>
+github: garnix-io/blup
+
+dependencies:
+  - base >= 4.5 && < 5
+  - bytestring
+  - directory
+  - interpolate
+  - optparse-applicative
+  - process
+  - string-conversions
+  - text
+  - unix
+
+ghc-options:
+  - -Wall
+  - -Wno-name-shadowing
+  - -threaded
+
+library:
+  source-dirs:
+    - src
+
+executables:
+  blup:
+    main: exe/Blup.hs
+    dependencies:
+      - blup
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs:
+      - test/spec
+      - src
+    dependencies:
+      - directory
+      - filepath
+      - hspec
+      - hspec-discover
+      - interpolate
+      - transformers
+
+default-extensions:
+  - BangPatterns
+  - ConstraintKinds
+  - DataKinds
+  - DeriveAnyClass
+  - DeriveFunctor
+  - DeriveTraversable
+  - DeriveGeneric
+  - DerivingStrategies
+  - DerivingVia
+  - FunctionalDependencies
+  - FlexibleContexts
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - LambdaCase
+  - MultiParamTypeClasses
+  - MultiWayIf
+  - NamedFieldPuns
+  - OverloadedLabels
+  - PolyKinds
+  - QuantifiedConstraints
+  - RankNTypes
+  - RecordWildCards
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeOperators
+  - ScopedTypeVariables
+  - StandaloneDeriving
